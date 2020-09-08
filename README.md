@@ -46,8 +46,8 @@
  
 | Column  | Type        | Options                        |
 | ------  | ------------|------------------------------- |
-| user_id | integer     | null: false, foreign_key: true |
-| item_id | integer     | null: false, foreign_key: true |
+| user_id | references  | null: false, foreign_key: true |
+| item_id | references  | null: false, foreign_key: true |
 
 ### Association
 
@@ -65,7 +65,7 @@
 | city          | string     | null: false                     |
 | house_number  | string     | null: false                     |
 | building_name | string     |                                 |
-| tel           | integer    |null: false                      |
+| tel           | string     |null: false                      |
 
 ### Association
 
