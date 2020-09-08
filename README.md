@@ -33,7 +33,7 @@
 | shipping_fee_id   | integer    | null: false |
 | prefectures_id    | integer    | null: false |
 | shipping_date_id  | integer    | null: false |
-| user_id           | references | null: false, foreign_key: true |
+| user              | references | null: false, foreign_key: true |
 
 ### Association
 
@@ -45,8 +45,8 @@
  
 | Column  | Type        | Options                        |
 | ------  | ------------|------------------------------- |
-| user_id | references  | null: false, foreign_key: true |
-| item_id | references  | null: false, foreign_key: true |
+| user    | references  | null: false, foreign_key: true |
+| item    | references  | null: false, foreign_key: true |
 
 ### Association
 
@@ -64,7 +64,8 @@
 | city          | string     | null: false                     |
 | house_number  | string     | null: false                     |
 | building_name | string     |                                 |
-| tel           | string     |null: false                      |
+| tel           | string     | null: false                     |
+| purchase_id   | integer    | null: false, foreign_key: true  |
 
 ### Association
 
