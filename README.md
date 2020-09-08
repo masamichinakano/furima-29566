@@ -17,32 +17,31 @@
 ### Association
 
 - has_many :items
-- has_many :transaction
+- has_many :purchases
 
 
 
 ## item テーブル
 
-| Column            | Type    | Options     |
-| ------------------| --------| ----------- |
-| name              | string  | null: false |
-| price             | integer | null: false |
-| text              | string  | null: false |
-| image             | text    | null: false |
-| category_id       | integer | null: false | 
-| product_status_id | integer | null: false |
-| shipping_fee_id   | integer | null: false |
-| prefectures_id    | integer | null: false |
-| shipping_date_id  | integer | null: false |
-| user_id           | integer | null: false |
+| Column            | Type       | Options     |
+| ------------------| -----------| ----------- |
+| name              | string     | null: false |
+| price             | integer    | null: false |
+| text              | text       | null: false |
+| category_id       | integer    | null: false | 
+| product_status_id | integer    | null: false |
+| shipping_fee_id   | integer    | null: false |
+| prefectures_id    | integer    | null: false |
+| shipping_date_id  | integer    | null: false |
+| user_id           | references | null: false, foreign_key: true |
 
 ### Association
 
 - belongs_to :user
-- has_one :transaction
+- has_one :purchase
 
 
-## transaction テーブル
+## purchase テーブル
  
 | Column  | Type        | Options                        |
 | ------  | ------------|------------------------------- |
@@ -61,7 +60,7 @@
 | Column        | Type       | Options                         |
 | --------------| -----------|---------------------------------|
 | postal_code   | string     | null: false                     |                   
-| prefecture    | integer    | null: false                     |
+| prefecture_id | integer    | null: false                     |
 | city          | string     | null: false                     |
 | house_number  | string     | null: false                     |
 | building_name | string     |                                 |
