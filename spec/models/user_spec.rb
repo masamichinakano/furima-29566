@@ -7,6 +7,7 @@ RSpec.describe User, type: :model do
     end
     
     it "項目全て存在するときは新規登録できる" do
+      # binding.pry
       expect(@user).to  be_valid
     end
 
@@ -38,10 +39,23 @@ RSpec.describe User, type: :model do
       expect(another_user.errors.full_messages).to include("Email has already been taken")
     end
 
+    it "emailは@が存在しないと登録できない" do
+      @user.email = "aaaaaa"
+      @user.valid?
+      binding.pry
+      expect(@user.errors.full_messages).to include("Email is invalid")
+    end
+
     it "passwordが存在しないと登録できない" do
       @user.password = ""
       @user.valid?
       expect(@user.errors.full_messages).to include("Password can't be blank")
+    end
+
+    it "passwordは半角英数字混合でないと登録できない" do
+      @user.password = "aaaaaa"
+      @user.valid?
+      expect(@user.errors.full_messages).to include("Password is invalid")
     end
 
     it "passwordは６文字以下では登録できない" do
