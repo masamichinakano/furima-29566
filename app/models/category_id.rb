@@ -1,4 +1,4 @@
-class CategoryId < ApplicationRecord
+class CategoryId < ActiveHash::Base
   self.data = [
                {id: 0, name: '--'},
                {id: 1, name: 'レディース'},
@@ -11,5 +11,5 @@ class CategoryId < ApplicationRecord
                {id: 8, name: 'スポーツ・レジャー'},
                {id: 9, name: 'ハンドメイド'},
                {id: 10, name: 'その他'}
-  ]
+              ]
 end
