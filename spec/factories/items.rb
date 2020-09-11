@@ -1,8 +1,8 @@
 FactoryBot.define do
   factory :item do
-    name {"商品名"}
-    price {3000}
-    text {"テキスト"}
+    name { '商品名' }
+    price { 3000 }
+    text {'テキスト'}
     category_id {1}
     product_status_id {1}
     shipping_fee_id {1}
@@ -12,7 +12,5 @@ FactoryBot.define do
     after(:build) do |item|
       item.image.attach(io: File.open('public/images/test_image.png'), filename: 'test_image.png')
     end
- 
-    
   end
 end
