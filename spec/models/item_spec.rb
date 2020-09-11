@@ -10,12 +10,6 @@ RSpec.describe Item, type: :model do
       expect(@item).to be_valid
     end
 
-    it 'priceが存在すると販売手数料が存在する' do
-    end
-
-    it 'priceが存在すると販売利益が存在する' do
-    end
-
     it 'nemeが存在しないと出品できない' do
       @item.name = ''
       @item.valid?
@@ -82,19 +76,5 @@ RSpec.describe Item, type: :model do
       expect(@item.errors.full_messages).to include('Price must be less than or equal to 9999999')
     end
 
-    it do
-    end
-
-    it do
-    end
-
-    it do
-    end
-
-    it do
-    end
-
-    it do
-    end
   end
 end
