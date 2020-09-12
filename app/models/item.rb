@@ -4,7 +4,7 @@ class Item < ApplicationRecord
   belongs_to_active_hash :product_status
   belongs_to_active_hash :shipping_fee
   belongs_to_active_hash :shipping_date
-  belongs_to_active_hash :product_status
+  belongs_to_active_hash :prefectures
 
   belongs_to :user
   has_one_attached :image
