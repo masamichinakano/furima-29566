@@ -1,16 +1,17 @@
 class ItemsController < ApplicationController
-  before_action :move_to_new_user_session, except: [:index]
-
+  before_action :move_to_new_user_session, except: [:index]    
+  
   def index
+    @items = Item.all
   end
 
   def new
-    @items = Item.new
+    @item = Item.new
   end
 
   def create
-    @items = Item.new(item_params)
-    if @items.save
+    @item = Item.new(item_params)
+    if @item.save
       redirect_to root_path
     else
       render 'new'
@@ -24,6 +25,6 @@ class ItemsController < ApplicationController
   end
 
   def move_to_new_user_session
-    redirect_to new_user_session_path unless user_signed_in?
+    redirect_to new_user_session_path unless user_signed_in?   
   end
 end
