@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   before_action :move_to_new_user_session, except: [:index, :show]    
+  before_action :set_item, only: [:edit, :update, :show, :destroy]
   
   def index
     @items = Item.all
@@ -19,7 +20,20 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.find(params[:id])
+  end
+
+  def edit
+  end
+
+  def update
+    if @item.update(item_params)
+      redirect_to root_path
+    else
+      render 'edit'
+    end
+  end
+
+  def destroy
   end
 
   private
@@ -30,5 +44,9 @@ class ItemsController < ApplicationController
 
   def move_to_new_user_session
     redirect_to new_user_session_path unless user_signed_in?   
+  end
+
+  def set_item
+    @item = Item.find(params[:id])
   end
 end
