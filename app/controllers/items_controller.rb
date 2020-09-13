@@ -1,9 +1,10 @@
 class ItemsController < ApplicationController
   before_action :move_to_new_user_session, except: [:index, :show]    
-  before_action :set_item, only: [:edit, :update, :show,]
+  before_action :set_item, only: [:edit, :update, :show, :destroy]
+
   
   def index
-    @items = Item.all
+    @items = Item.all.order("created_at DESC")
   end
 
   def new
@@ -30,6 +31,15 @@ class ItemsController < ApplicationController
       redirect_to root_path
     else
       render 'edit'
+    end
+    
+  end
+
+  def destroy
+    if @item.destroy
+      redirect_to root_path
+    else
+      render 'show'
     end
   end
 
