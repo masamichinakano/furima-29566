@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
   before_action :move_to_new_user_session, except: [:index, :show]    
   before_action :set_item, only: [:edit, :update, :show, :destroy]
+
   
   def index
     @items = Item.all
@@ -31,6 +32,7 @@ class ItemsController < ApplicationController
     else
       render 'edit'
     end
+    
   end
 
   def destroy
