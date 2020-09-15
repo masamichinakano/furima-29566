@@ -11,6 +11,7 @@ class PurchaseAddress
     validates :postal_code, format: {with: /\A\d{3}[-]\d{4}\z/}
     validates :prefectures_id
     validates :city
+    validates :house_number
     validates :tell, format: {with: /\A\d{11}\z/}
   end
 
